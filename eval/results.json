@@ -1,0 +1,105 @@
+[
+  {
+    "id": 1,
+    "type": "semantic",
+    "question": "Why do landing gears fail to extend?",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 2,
+    "type": "semantic",
+    "question": "Incidents where cabin pressure could not be controlled",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 3,
+    "type": "semantic",
+    "question": "Smoke or burning smell in the cockpit or cabin",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 4,
+    "type": "semantic",
+    "question": "Near mid-air collision or TCAS resolution advisory events",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 5,
+    "type": "semantic",
+    "question": "Bird strikes during takeoff or climb",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 6,
+    "type": "semantic",
+    "question": "Engine failure or power loss in flight",
+    "retrieval_precision@5": 0.8,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 7,
+    "type": "semantic",
+    "question": "Pilot fatigue affecting decision making",
+    "retrieval_precision@5": 0.8,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 8,
+    "type": "semantic",
+    "question": "Runway incursions at towered airports",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 9,
+    "type": "semantic",
+    "question": "Fuel exhaustion or low fuel emergencies",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 10,
+    "type": "semantic",
+    "question": "Turbulence injuring flight attendants or passengers",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 11,
+    "type": "filtered",
+    "question": "Cessna incidents involving landing gear",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 12,
+    "type": "filtered",
+    "question": "Engine problems in a Piper aircraft",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 13,
+    "type": "filtered",
+    "question": "Problems during approach",
+    "retrieval_precision@5": 1.0,
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 14,
+    "type": "stats",
+    "question": "What is the most common anomaly category in the data?",
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  {
+    "id": 15,
+    "type": "stats",
+    "question": "How many reports involve Smoke / Fire / Fumes / Odor events?",
+    "error": "Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  }
+]

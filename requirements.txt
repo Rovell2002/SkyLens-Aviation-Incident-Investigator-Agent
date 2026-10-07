@@ -1,0 +1,7 @@
+chromadb
+sentence-transformers
+langgraph
+langchain-groq
+pandas
+fastapi
+streamlit

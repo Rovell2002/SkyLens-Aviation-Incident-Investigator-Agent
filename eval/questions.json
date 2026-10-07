@@ -1,0 +1,17 @@
+[
+  {"id": 1, "type": "semantic", "question": "Why do landing gears fail to extend?", "keywords": ["gear"]},
+  {"id": 2, "type": "semantic", "question": "Incidents where cabin pressure could not be controlled", "keywords": ["pressur", "cabin"]},
+  {"id": 3, "type": "semantic", "question": "Smoke or burning smell in the cockpit or cabin", "keywords": ["smoke", "smell", "odor", "fume", "burning"]},
+  {"id": 4, "type": "semantic", "question": "Near mid-air collision or TCAS resolution advisory events", "keywords": ["tcas", "ra ", "traffic", "collision"]},
+  {"id": 5, "type": "semantic", "question": "Bird strikes during takeoff or climb", "keywords": ["bird"]},
+  {"id": 6, "type": "semantic", "question": "Engine failure or power loss in flight", "keywords": ["engine"]},
+  {"id": 7, "type": "semantic", "question": "Pilot fatigue affecting decision making", "keywords": ["fatigue", "tired", "sleep"]},
+  {"id": 8, "type": "semantic", "question": "Runway incursions at towered airports", "keywords": ["runway", "incursion"]},
+  {"id": 9, "type": "semantic", "question": "Fuel exhaustion or low fuel emergencies", "keywords": ["fuel"]},
+  {"id": 10, "type": "semantic", "question": "Turbulence injuring flight attendants or passengers", "keywords": ["turbulence"]},
+  {"id": 11, "type": "filtered", "question": "Cessna incidents involving landing gear", "filters": {"aircraft": "Cessna"}, "keywords": ["gear"]},
+  {"id": 12, "type": "filtered", "question": "Engine problems in a Piper aircraft", "filters": {"aircraft": "Piper|PA-"}, "keywords": ["engine"]},
+  {"id": 13, "type": "filtered", "question": "Problems during approach", "filters": {"flight_phase": "Approach"}, "keywords": ["approach"]},
+  {"id": 14, "type": "stats", "question": "What is the most common anomaly category in the data?", "answer_keywords": ["Published Material"]},
+  {"id": 15, "type": "stats", "question": "How many reports involve Smoke / Fire / Fumes / Odor events?", "answer_keywords": ["513"]}
+]
