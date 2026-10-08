@@ -2,11 +2,10 @@ import glob
 import re
 import pandas as pd
 import chromadb
-from sentence_transformers import SentenceTransformer
+from embedder import embed_docs, COLLECTION
 
-RAW_GLOB = "DATA/**/*.csv"
+RAW_GLOB = "data/**/*.csv"
 DB_PATH = "chroma_db"
-COLLECTION = "asrs"
 CHUNK_CHARS = 1500
 OVERLAP = 200
 
@@ -72,7 +71,6 @@ def main():
     c_n1 = find_col(df, "Report 1", "Narrative")
     c_n2 = find_col(df, "Report 2", "Narrative")
 
-    model = SentenceTransformer("BAAI/bge-small-en-v1.5")
     client = chromadb.PersistentClient(path=DB_PATH)
     try:
         client.delete_collection(COLLECTION)
@@ -110,7 +108,7 @@ def main():
     BATCH = 256
     for i in range(0, len(docs), BATCH):
         b_docs = docs[i:i + BATCH]
-        embs = model.encode(b_docs, normalize_embeddings=True).tolist()
+        embs = embed_docs(b_docs)
         col.add(ids=ids[i:i + BATCH], documents=b_docs,
                 embeddings=embs, metadatas=metas[i:i + BATCH])
         print(f"  {min(i + BATCH, len(docs))}/{len(docs)}")
