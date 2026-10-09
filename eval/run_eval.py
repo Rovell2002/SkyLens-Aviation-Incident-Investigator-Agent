@@ -51,7 +51,8 @@ for q in questions:
                 row["fabricated_citations"] = sorted(cited - retrieved)
                 row["has_citation"] = len(cited) > 0
             else:
-                row["answer_correct"] = all(k.lower() in answer.lower()
+                plain = answer.lower().replace(",", "")   # "13,000" -> "13000"
+                row["answer_correct"] = all(k.lower() in plain
                                             for k in q["answer_keywords"])
         except Exception as e:
             row["error"] = str(e)

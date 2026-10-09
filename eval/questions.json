@@ -12,6 +12,8 @@
   {"id": 11, "type": "filtered", "question": "Cessna incidents involving landing gear", "filters": {"aircraft": "Cessna"}, "keywords": ["gear"]},
   {"id": 12, "type": "filtered", "question": "Engine problems in a Piper aircraft", "filters": {"aircraft": "Piper|PA-"}, "keywords": ["engine"]},
   {"id": 13, "type": "filtered", "question": "Problems during approach", "filters": {"flight_phase": "Approach"}, "keywords": ["approach"]},
-  {"id": 14, "type": "stats", "question": "What is the most common anomaly category in the data?", "answer_keywords": ["Published Material"]},
-  {"id": 15, "type": "stats", "question": "How many reports involve Smoke / Fire / Fumes / Odor events?", "answer_keywords": ["513"]}
+  {"id": 14, "type": "stats", "question": "What is the most common anomaly category in the data?", "answer_keywords": ["Published Material", "13000"]},
+  {"id": 15, "type": "stats", "question": "How many reports involve Smoke / Fire / Fumes / Odor events?", "answer_keywords": ["1128"]},
+    {"id": 16, "type": "stats", "question": "How many reports are there in 2025?", "answer_keywords": ["6127"]},
+  {"id": 17, "type": "stats", "question": "How many reports are there in 2024?", "answer_keywords": ["5427"]}
 ]

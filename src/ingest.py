@@ -4,7 +4,7 @@ import pandas as pd
 import chromadb
 from embedder import embed_docs, COLLECTION
 
-RAW_GLOB = "data/**/*.csv"
+RAW_GLOB = "Dataset/**/*.csv"   # must match your data folder name exactly
 DB_PATH = "chroma_db"
 CHUNK_CHARS = 1500
 OVERLAP = 200
