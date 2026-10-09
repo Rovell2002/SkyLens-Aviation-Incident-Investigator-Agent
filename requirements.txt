@@ -5,3 +5,4 @@ langchain-groq
 pandas
 fastapi
 streamlit
+plotly
