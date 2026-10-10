@@ -196,7 +196,9 @@ The first 13 retrieval questions saturated (bge-small scored 0.98), so 8 paraphr
 |---|---|---|---|---|
 | bge-small | 0.98 | 0.90 | 4.7 min (RTX 3050) | baseline, 384-dim |
 | bge-base | 1.00 | 0.93 | 9.0 min (RTX 3050) | 768-dim; hard questions 18/19/25: 0.6/0.8/0.2 (bge-small: 0.4/0.6/0.0) |
-| qwen3-0.6b | *running* | *running* | about 1 hour (estimate) | 1024-dim, about 6 times larger than bge-base |
+| qwen3-0.6b | 1.00 | 0.94 | 51.7 min (RTX 3050) | 1024-dim; hard questions 18/19/25: 0.6/0.6/0.8, but question 22 dropped to 0.8 |
+
+**Reading the table:** with 21 questions, one question moving by 0.2 changes the average by only about 0.01, so bge-base (0.93) and Qwen3 (0.94) are effectively tied overall. The clear difference is question 25 ("wrong barometric pressure"): Qwen3 understood it (0.8) where bge-small (0.0) and bge-base (0.2) matched the word "pressure". That gain cost 11 times the build time of bge-small, and a 0.6B model is slow to embed queries on a CPU-only free host. So Qwen3 is not used for deployment. The choice between bge-small and bge-base is made after testing a cross-encoder reranker, which may fix the same kind of miss far more cheaply.
 | embeddinggemma | not run | not run | not run | gated model, needs Hugging Face license |
 
 Agent-level results (Groq `openai/gpt-oss-120b`, bge-small, original 17 questions):
@@ -265,7 +267,7 @@ The fabricated-citation check only verifies that each cited ACN was actually ret
 - [x] Re-tested chat after the fixes (B787 search, grounding, Piper alias)
 - [x] Full agent evaluation: citations 13/13, fabricated 1/13, stats 4/4
 - [x] Harder evaluation questions and embedding comparison (bge-small vs bge-base)
-- [ ] Qwen3-0.6b result
+- [x] Qwen3-0.6b result (0.94, fixes the "pressure" confusion, 51.7 min build)
 - [ ] Citation guardrail: mark cited ACNs that were not retrieved as unverified
 - [ ] Month filter (`date_from` / `date_to`)
 - [ ] Reranker (cross-encoder), measured in the eval table
