@@ -32,6 +32,8 @@ def _aircraft_variants(opt):
     m = re.search(r"airbus\s*-?\s*a?\s*(\d{3})", opt)
     if m:
         out.append("a" + m.group(1))
+    if "piper" in opt:          # most Piper models are listed only as PA-28, PA-34, ...
+        out.append("pa-")
     return out
 
 

@@ -56,7 +56,7 @@ for q in questions:
                                             for k in q["answer_keywords"])
         except Exception as e:
             row["error"] = str(e)
-        time.sleep(3)  # stay under free-tier rate limits
+        time.sleep(20)  # stay under free-tier rate limits
     results.append(row)
     print(row["id"], {k: v for k, v in row.items() if k not in ("answer", "question")})
 

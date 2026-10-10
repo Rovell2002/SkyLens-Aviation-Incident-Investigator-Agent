@@ -33,7 +33,7 @@
     "id": 6,
     "type": "semantic",
     "question": "Engine failure or power loss in flight",
-    "retrieval_precision@5": 0.8
+    "retrieval_precision@5": 1.0
   },
   {
     "id": 7,
@@ -96,5 +96,53 @@
     "id": 17,
     "type": "stats",
     "question": "How many reports are there in 2024?"
+  },
+  {
+    "id": 18,
+    "type": "semantic",
+    "question": "Crew could not get three green lights before touchdown",
+    "retrieval_precision@5": 0.6
+  },
+  {
+    "id": 19,
+    "type": "semantic",
+    "question": "Aircraft left the paved surface after touching down",
+    "retrieval_precision@5": 0.8
+  },
+  {
+    "id": 20,
+    "type": "semantic",
+    "question": "Passengers noticed a strange dirty-sock smell in the cabin",
+    "retrieval_precision@5": 1.0
+  },
+  {
+    "id": 21,
+    "type": "semantic",
+    "question": "Plane crossed the hold line without a clearance",
+    "retrieval_precision@5": 1.0
+  },
+  {
+    "id": 22,
+    "type": "semantic",
+    "question": "Turbulence from a heavy jet ahead rolled the aircraft on final",
+    "retrieval_precision@5": 1.0
+  },
+  {
+    "id": 23,
+    "type": "semantic",
+    "question": "Frozen buildup on the wings while flying through cloud",
+    "retrieval_precision@5": 1.0
+  },
+  {
+    "id": 24,
+    "type": "semantic",
+    "question": "Unmanned aircraft seen very close to us during climb",
+    "retrieval_precision@5": 1.0
+  },
+  {
+    "id": 25,
+    "type": "semantic",
+    "question": "Pilot set the wrong barometric pressure and flew lower than intended",
+    "retrieval_precision@5": 0.2
   }
 ]

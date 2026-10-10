@@ -9,4 +9,6 @@ venv/
 .vscode/
 *.log
 chroma_db/
-DATA/
+data/
+API.txt
+*.key
