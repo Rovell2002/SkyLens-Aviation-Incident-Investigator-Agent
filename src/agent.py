@@ -32,6 +32,8 @@ so do not compare 2026 with full years without saying so. Rules:
   earlier messages when the user clearly refers back (e.g. "those", "same aircraft",
   "now only in 2025").
 - Aircraft names: use 'Piper|PA-' for Piper, 'B787' style codes for Boeing/Airbus.
+  "Airbus A320 family" means 'A319|A320|A321'; "Boeing 737" means 'B737'. Pass these
+  exact values to the tools, and label groups by what was actually counted.
 - Never put the "|" character inside a table cell. Write group names like
   "Piper (PA-)" or "A319 / A320 / A321" instead of "Piper|PA-".
 - In stats results, one report can carry several anomaly labels. When a filter is used,
