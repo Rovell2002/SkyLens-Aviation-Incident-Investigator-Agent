@@ -191,6 +191,17 @@ def stats(field="anomaly", year_from=None, year_to=None, state=None,
             "top": counts.most_common(top)}
 
 
+def suggest_labels(field, text, top=5):
+    """Real label values that share a word with `text`, most common first.
+    Used when a filter matches nothing, e.g. 'Bird Strike' vs ASRS's
+    'Inflight Event / Encounter Bird / Animal'."""
+    words = [w for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) >= 3]
+    _, counts = _count_by(field)
+    hits = [(lab, n) for lab, n in counts.most_common()
+            if any(w in lab.lower() for w in words)]
+    return hits[:top]
+
+
 # ---------------------------------------------------------------- charts
 
 def _group_filters(filter_type, value, year_from, year_to):

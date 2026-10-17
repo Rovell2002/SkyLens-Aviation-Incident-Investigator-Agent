@@ -26,6 +26,9 @@ so do not compare 2026 with full years without saying so. Rules:
 - Summary points must match the table. Do not claim outcomes (e.g. "non-fatal") or add
   examples unless the reports state them, and do not call something "most common" from
   fewer than 5 reports.
+- If a tool finds 0 matching reports, never conclude the event did not happen or was
+  not reported. Say the filter found nothing and retry with a real ASRS label
+  (the tool suggests them) or with search_reports.
 - If a group has fewer than 50 reports, say it is a small sample. Do not give fleet or
   training recommendations; ASRS counts reflect who reports, not risk.
 - Treat each question as standalone. Only reuse aircraft, years or other filters from
@@ -52,6 +55,19 @@ so do not compare 2026 with full years without saying so. Rules:
 CHART_STORE = {}   # full chart data is kept here; the LLM only sees a short summary
 
 
+def _no_match(filter_type, values, totals):
+    """If a group matched zero reports, say so (with real label suggestions)
+    instead of drawing an all-zero chart the model might misread as 'no incidents'."""
+    empty = [v for v in values if totals.get(v, 0) == 0]
+    if not empty or filter_type in ("year", "all", "state"):
+        return None
+    tips = {v: R.suggest_labels(filter_type, v.replace("|", " ")) for v in empty}
+    return ("NO MATCH, no chart drawn. These values matched 0 reports: " + ", ".join(empty)
+            + ". This means the filter wording does not match ASRS labels, NOT that no such "
+            "events happened. Real labels sharing a word (label, reports): " + str(tips)
+            + ". Retry with a matching label substring, or use search_reports instead.")
+
+
 def _store_chart(payload, summary):
     cid = uuid.uuid4().hex[:8]
     CHART_STORE[cid] = payload
@@ -66,6 +82,9 @@ def compare_groups(filter_type: str, values: list[str], field: str = "anomaly",
     values are the groups, e.g. ['Cessna', 'Piper|PA-'] or ['2022', '2024'].
     field is what to count inside each group: anomaly, flight_phase or aircraft."""
     p = R.compare(field, filter_type, values, year_from, year_to, top=5)
+    miss = _no_match(filter_type, values, p["totals"])
+    if miss:
+        return miss
     lines = [f"Chart shown to the user. Reports per group: {p['totals']}."]
     for v in values:
         top = sorted((r for r in p["rows"] if r["group"] == v), key=lambda r: -r["pct"])[:3]
@@ -80,6 +99,12 @@ def trend_chart(filter_type: str = "all", values: list[str] = None,
     Use filter_type 'anomaly' to trend a topic, e.g. values ['Smoke / Fire / Fumes'],
     or 'aircraft' / 'flight_phase' to compare groups over time."""
     p = R.trend(filter_type, tuple(values or ["All"]), year_from, year_to)
+    totals = {}
+    for r in p["rows"]:
+        totals[r["group"]] = totals.get(r["group"], 0) + (r["count"] or 0)
+    miss = _no_match(filter_type, list(totals), totals)
+    if miss:
+        return miss
     yearly = {}
     for r in p["rows"]:
         if r["count"] is not None:
