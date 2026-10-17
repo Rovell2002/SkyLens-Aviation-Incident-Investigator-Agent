@@ -47,8 +47,20 @@ def _where(year_from=None, year_to=None, state=None):
     return conds[0] if len(conds) == 1 else {"$and": conds}
 
 
+# Brand names users type -> how ASRS actually writes the models.
+# e.g. Cessna 172s are stored as "Skyhawk 172/Cutlass 172" with no "Cessna" in it.
+AIRCRAFT_ALIASES = {
+    "cessna": ["skyhawk", "skylane", "cutlass", "citation", "caravan", "centurion",
+               "stationair", "cardinal", "skymaster"],
+    "piper": ["pa-"],
+    "cirrus": ["sr20", "sr22"],
+    "embraer": ["emb "],
+    "bombardier": ["crj", "regional jet"],
+}
+
+
 def _aircraft_variants(opt):
-    """ASRS writes 'B787 Dreamliner', 'A320', not 'Boeing 787' / 'Airbus A320'."""
+    """ASRS writes 'B787 Dreamliner', 'A320', 'PA-28', 'Skyhawk 172', not brand names."""
     out = [opt]
     m = re.search(r"boeing\s*-?\s*(\d{3})", opt)
     if m:
@@ -56,8 +68,9 @@ def _aircraft_variants(opt):
     m = re.search(r"airbus\s*-?\s*a?\s*(\d{3})", opt)
     if m:
         out.append("a" + m.group(1))
-    if "piper" in opt:          # most Piper models are listed only as PA-28, PA-34, ...
-        out.append("pa-")
+    for brand, names in AIRCRAFT_ALIASES.items():
+        if brand in opt:
+            out.extend(names)
     return out
 
 
