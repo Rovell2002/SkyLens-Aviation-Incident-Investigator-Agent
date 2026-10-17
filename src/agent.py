@@ -42,7 +42,9 @@ so do not compare 2026 with full years without saying so. Rules:
   the user automatically, so give a 2-3 sentence interpretation and do not reprint the data.
 - Mention that 2026 is a partial year whenever you describe a trend across years.
 - Filters exclude reports with missing fields, so prefer a plain semantic query first and
-  add filters only when the user names a specific aircraft, phase, state or year."""
+  add filters only when the user names a specific aircraft, phase, state or year.
+- Never put the "|" character inside a table cell. Write group names like
+  "Piper (PA-)" or "A319 / A320 / A321" instead of "Piper|PA-"."""
 
 
 CHART_STORE = {}   # full chart data is kept here; the LLM only sees a short summary
