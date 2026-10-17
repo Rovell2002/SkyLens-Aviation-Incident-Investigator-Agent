@@ -30,8 +30,9 @@ def render_chart(p, key):
         df["month"] = pd.to_datetime(df["month"], format="%Y%m")
         fig = px.line(df, x="month", y="count", color="group", markers=True, title=p["title"])
         st.plotly_chart(fig, use_container_width=True, key=f"fig_{key}")
-        st.caption("Gaps mean no data was loaded for those months. They are not zero incidents. "
-                   "2026 is a partial year.")
+        st.caption("Only months with at least 20 reports in the whole dataset are plotted, so a few "
+                   "reports with much older incident dates and the latest, partly loaded month are left "
+                   "out. Counts are reports filed, not incidents. 2026 is a partial year.")
 
 
 def compare_tab():

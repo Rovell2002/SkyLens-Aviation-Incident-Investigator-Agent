@@ -207,9 +207,21 @@ def compare(field, filter_type, values, year_from=None, year_to=None, top=8):
             "title": f"{field} by {filter_type}: " + " vs ".join(values)}
 
 
+MIN_REPORTS_PER_MONTH = 20
+
+
 @lru_cache(maxsize=1)
 def _covered_months():
-    return sorted({m["date"] for m in _all_metas() if m.get("date")})
+    """Months with enough reports to plot. A handful of reports carry much older
+    incident dates (e.g. 2002, 2015), and the latest month is only partly loaded;
+    keeping them stretched the trend axis to 2002 and drew misleading zeros."""
+    per_month, seen = Counter(), set()
+    for m in _all_metas():
+        if m["acn"] in seen or not m.get("date"):
+            continue
+        seen.add(m["acn"])
+        per_month[m["date"]] += 1
+    return sorted(mo for mo, n in per_month.items() if n >= MIN_REPORTS_PER_MONTH)
 
 
 def trend(filter_type="all", values=("All",), year_from=None, year_to=None):

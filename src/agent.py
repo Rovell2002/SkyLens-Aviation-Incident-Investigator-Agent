@@ -32,6 +32,8 @@ so do not compare 2026 with full years without saying so. Rules:
   earlier messages when the user clearly refers back (e.g. "those", "same aircraft",
   "now only in 2025").
 - Aircraft names: use 'Piper|PA-' for Piper, 'B787' style codes for Boeing/Airbus.
+- Never put the "|" character inside a table cell. Write group names like
+  "Piper (PA-)" or "A319 / A320 / A321" instead of "Piper|PA-".
 - In stats results, one report can carry several anomaly labels. When a filter is used,
   the other labels are co-occurring labels, not sub-types, and their counts do not add up
   to the total. Say this when you present them.
@@ -42,9 +44,7 @@ so do not compare 2026 with full years without saying so. Rules:
   the user automatically, so give a 2-3 sentence interpretation and do not reprint the data.
 - Mention that 2026 is a partial year whenever you describe a trend across years.
 - Filters exclude reports with missing fields, so prefer a plain semantic query first and
-  add filters only when the user names a specific aircraft, phase, state or year.
-- Never put the "|" character inside a table cell. Write group names like
-  "Piper (PA-)" or "A319 / A320 / A321" instead of "Piper|PA-"."""
+  add filters only when the user names a specific aircraft, phase, state or year."""
 
 
 CHART_STORE = {}   # full chart data is kept here; the LLM only sees a short summary
