@@ -1,0 +1,597 @@
+aircraft,reports
+Commercial Fixed Wing,3200
+Low Wing,2295
+Small Aircraft,1844
+1 Eng,1430
+2 Turbojet Eng,1366
+Skyhawk 172/Cutlass 172,1260
+B737 Undifferentiated or Other Model,1248
+Fixed Gear,1220
+B737-800,865
+High Wing,740
+A320,738
+A321,710
+EMB ERJ 170/175 ER/LR,612
+A319,588
+PA-28 Cherokee/Archer/Dakota/Pillan/Warrior,579
+EMB ERJ 145 ER/LR,563
+Medium Transport,428
+Regional Jet 900 (CRJ900),361
+Light Transport,349
+Large Transport,329
+Medium Large Transport,327
+B767-300 and 300 ER,312
+Small Transport,309
+Retractable Gear,282
+Any Unknown or Unlisted Aircraft Manufacturer,268
+B737-700,258
+DA40 Diamond Star,245
+B757 Undifferentiated or Other Model,239
+B777 Undifferentiated or Other Model,237
+Skylane 182/RG Turbo Skylane/RG,224
+B767 Undifferentiated or Other Model,219
+B737 Next Generation Undifferentiated,193
+Regional Jet 700 ER/LR (CRJ700),190
+B787 Dreamliner Undifferentiated or Other Model,189
+SR20,180
+B757-200,178
+Regional Jet 200 ER/LR (CRJ200),174
+No Aircraft,159
+B777-200,146
+B747-400,134
+MD-11,131
+A300,128
+Helicopter,120
+EMB-505 / Phenom 300,120
+Widebody,119
+Small UAS (At or above 0.55 lbs and less than 55 lbs),119
+Citation Latitude (C680A),115
+2 Turboprop Eng,114
+Cessna 150,114
+Amateur/Home Built/Experimental,113
+SR22,110
+PC-12,101
+B737 MAX 8,100
+Cessna 152,87
+B737-900,83
+Citationjet (C525/C526) - CJ I / II / III / IV,82
+Citation Excel (C560XL),74
+Light Sport Aircraft,74
+2 Eng,72
+DA42 Twin Star,72
+Gulfstream IV / G350 / G450,66
+Challenger 350,65
+UAV: Unpiloted Aerial Vehicle,65
+PA-32 Cherokee Six/Lance/Saratoga/6X,64
+PA-44 Seminole/Turbo Seminole,61
+Challenger 300,60
+EMB ERJ 190/195 ER/LR,58
+Cessna 402/402C/B379 Businessliner/Utiliner,56
+Citation V/Ultra/Encore (C560),56
+PA-28R Cherokee Arrow All Series,53
+A330,52
+210D,51
+Cessna 210 Centurion / Turbo Centurion 210C,51
+Bonanza 35,50
+Regional Jet 550 ER/LR (CRJ550),49
+B737 MAX Series Undifferentiated,48
+Cessna Stationair/Turbo Stationair 6,47
+Tecnam P2012 Traveller,47
+Citation II S2/Bravo (C550),45
+Bonanza 36,44
+Beechjet 400,43
+B747-800 Advanced,42
+Widebody Transport,38
+Super King Air 200,38
+Small UAS,36
+Multi Rotor,36
+Baron 55/Cochise,36
+Airbus Industrie Undifferentiated or Other Model,34
+Cessna 310/T310C,34
+Citation X (C750),34
+Cessna Citation Sovereign (C680),34
+Citation Longitude (C700),34
+B787-900,33
+DJI Mavic 3,33
+B787-800,33
+Cirrus Vision SF50,32
+B777-300,32
+Caravan 208B,32
+Bonanza 33,30
+Single Engine Turboprop Undifferentiated,30
+Baron 58/58TC,30
+A220-300,30
+King Air C90 E90,29
+Sail Plane,29
+Traveler AA5 Series,29
+Cheetah,29
+Tiger,29
+Learjet 60,27
+Airliner 99,27
+Military,27
+Caravan Undifferentiated,26
+Cardinal 177/177RG,26
+M-20 Series Undifferentiated or Other Model,26
+PA-18/19 Super Cub,26
+DJI Mini 4 Pro,26
+2 Recip Eng,25
+Gulfstream G200 (IAI 1126 Galaxy),25
+J3 Cub,24
+Boeing Company Undifferentiated or Other Model,23
+Aeronca Champion,23
+B737 MAX 9,23
+Balloon,23
+DA20 Undifferentiated,23
+PA-24 Comanche,23
+Gulfstream V / G500 / G550,23
+EMB ERJ 135 ER/LR,22
+Falcon 900,22
+Heavy Transport,22
+Embraer Legacy 450/500,22
+Learjet 45,22
+Challenger 650,22
+Learjet 35,21
+Falcon 50,21
+PA-23-250 Aztec,21
+DA20-C1 Eclipse,21
+DJI Air 2S,20
+B767-200,20
+TBM 700/TBM 850,20
+SA-227 AC Metro III,19
+Eurocopter AS 350/355/EC130 - Astar/Twinstar/Ecureuil,19
+DJI Mavic 2 Pro,19
+Challenger CL600,19
+PA-30 Twin Comanche,19
+HS 125 Series,18
+M-20 J (201) / Allegro,18
+TBM 900 / TBM 930,18
+Super King Air 300,18
+DJI Air 3S,18
+PA-46 Malibu/Malibu Mirage/Malibu Matrix,17
+Embraer Jet Undifferentiated or Other Model,17
+Military Trainer,17
+RV-12,17
+Chancellor 414A / C414,17
+DJI M30T,17
+DJI Mini 2,17
+PA-34-200 Seneca I,17
+DJI Mini 5 Pro,17
+PA-31 Navajo/Chieftan/Mojave/T1040,16
+4 Turbojet Eng,16
+PA-46 Malibu Meridian,16
+Cessna 180 Skywagon,16
+Champion Citabria 7ECA,16
+PC-24,15
+Duchess 76,15
+Golden Eagle 421,15
+PA-34-200T Turbo Seneca II,15
+PA-20 Pacer/PA-22 Tri-Pacer,15
+Gulfstream G100/G150 (IAI 1125 Astra),15
+Tecnam P2006 Twin,15
+PA-23 Apache/Geronimo Apache,15
+Piper Single Undifferentiated or Other Model,15
+Undifferentiated or Other Model,15
+Regional Jet CL65,15
+Robinson R44,14
+M-20 B/C Ranger,14
+M-20 E Super 21,14
+Global Express (BD700),14
+Gulfstream G280,14
+Cessna 340/340A,14
+Honda Jet,14
+Cessna 425/441 Conquest I/Conquest II,14
+RV-10,14
+DJI Mavic 3 Enterprise,14
+Fixed Wing,13
+Cessna 170,13
+B767-400 and 400 ER,13
+Seaplane or Amphibian,13
+Jet/Long Ranger/206,13
+DJI Mini 3 Pro,13
+DJI Undifferentiated,13
+DJI Mavic Air 2,13
+DJI Mavic 4 Pro,13
+3 Turbojet Eng,12
+Aerobatic,12
+Falcon 2000,12
+Autel Robotics Evo II,12
+Caravan 208A,12
+Citation III,12
+VI,12
+VII (C650),12
+Gulfstream G650,12
+M-20 K (231) / Encore,12
+Cessna 140,12
+Large UAS,11
+Cessna Aircraft Undifferentiated or Other Model,11
+B757-300,11
+B717 (Formerly MD-95),11
+Eclipse 500,11
+Ultralight,11
+B737-400,11
+RV-8,11
+Learjet 75,11
+Decathlon 8KCAB,11
+Super King Air 350,11
+Stearman,11
+Skywagon 185,11
+B747 Undifferentiated or Other Model,11
+RV-6,11
+Beech 1900,10
+Global 5000 (Bombardier),10
+PA-60 600 Aerostar,10
+Falcon 7X,10
+Large UAS (At or above 1320 lbs),10
+B737-300,10
+EC135,10
+ATR 72,9
+Premier 1,9
+RV-7,9
+Robinson R22,9
+Albatros (L39),9
+Sundowner 23,9
+Skydio 2,9
+Musketeer 23,9
+RV-9,9
+Challenger 605,8
+Champion Citabria Undifferentiated,8
+Embraer Undifferentiated or Other Model,8
+M-20 F Executive 21,8
+Bombardier/Canadair Undifferentiated or Other Model,8
+Yankee AA1,8
+DJI Phantom 4 Pro,8
+Cessna Citation Mustang (C510),8
+G2 Heritage (Glasair II) / G3 Heritage (Glasair III),8
+Citation I/SP (C501),8
+Cessna 400,8
+Cessna Citation Undifferentiated or Other Model,8
+Bell Helicopter 407,8
+DJI Mini 3,8
+DJI Matrice 4D,8
+Dash 8 Series Undifferentiated or Other Model,7
+Beechcraft / Beech Aircraft Corp Undifferentiated or Other Model,7
+DJI FPV,7
+Beech F90,7
+MBB-BK 117 All Series,7
+P180 Avanti,7
+Duke 60,7
+M-20 R Ovation,7
+Navion,7
+Cessna 162 Skycatcher,7
+DJI Mavic Undifferentiated,7
+DJI Matrice 300 RTK,7
+DJI Mavic Pro,7
+DJI Air 3,7
+Skydio X10,7
+A-1 Husky,6
+Viking/Turbo-Viking 17-30/31,6
+Piper Aircraft Corp Undifferentiated or Other Model,6
+Extra 200/300 Series,6
+Multirotor,6
+Micro UAS,6
+A350,6
+Learjet 31,6
+Trinidad TB-20,6
+T6A Texan II / Harvard II (Raytheon),6
+Brasilia EMB-120 All Series,6
+Travelair 95,6
+Talon (T38),6
+Global 5500,6
+Alpha Trainer,6
+Costruzioni Aeronautiche Tecnam Undifferentiated or Other Model,5
+Learjet 70,5
+Bellanca Aircraft Corp Undifferentiated or Other Model,5
+EC130,5
+Challenger Jet Undifferentiated or Other Model,5
+Hawker 4000,5
+Bell Helicopter Textron Undifferentiated or Other Model,5
+BAe 125 Series 800,5
+DA20-A1 Katana,5
+Pitts S-2 All Series,5
+Mooney Aircraft Undifferentiated or Other Model,5
+Citation I (C500),5
+EC145,5
+Cessna Stationair/Turbo Stationair 7/8,5
+Saab 340 Undifferentiated,5
+Queen Air 65/70 (Seminole),5
+Sierra 24,5
+Vans Aircraft Undifferentiated or Other Model,5
+Cessna 404 Titan,5
+DJI Mavic Mini,5
+DC-3/Dakota/Skytrain,5
+Global 6000 (Bombardier),5
+Texan T6/Harvard (Antique),5
+PA-25 Pawnee,5
+Medium UAS (At or above 55 lbs and less than 1320 lbs),5
+Global 7000 / 7500 (Bombardier),5
+Tecnam P2010,5
+DJI Matrice 4E,5
+DJI Avata 2,5
+Challenger CL604,4
+Parrot Anafi,4
+Embraer Legacy 600 (EMB135BJ),4
+Beechcraft Single Piston Undifferentiated or Other Model,4
+Medium UAS,4
+A220-100,4
+Dash 8-400,4
+A109 All Series,4
+Twin Otter DHC-6,4
+Metro Undifferentiated or Other Model,4
+S-76/S-76 Mark II,4
+GA7-Cougar,4
+DJI Mavic 2 Enterprise,4
+Aero Commander 500 Series,4
+M-20 M Bravo,4
+DJI Inspire 2,4
+M-20 G Statesman,4
+Stratotanker 135,4
+BAe 125 Series 1000 (Hawker Horizon),4
+Commander 112/A/B/TC,4
+Sport 19,4
+RV-4,4
+SF 340B,4
+Lancair Columbia,4
+Gulfstream Jet Undifferentiated or Other Model,4
+Censys Sentaero BVLOS,4
+Luscombe Model 8/Luscombe 50,4
+DJI Avata,4
+PA-38 Tomahawk,4
+MD Helicopter 500/C/D/E/L,4
+MU-2B 40 Solitaire,4
+ATR 42,4
+SA 365 Dauphin 2,4
+Air Tractor 602,4
+DJI Matrice 4T,4
+M-7,3
+Fighter,3
+Cessna Single Piston Undifferentiated or Other Model,3
+Grumman American Undifferentiated or Other Model,3
+McDonnell Douglas Undifferentiated or Other Model,3
+LA-4-200 Buccaneer,3
+M-20 T Predator,3
+DJI Mavic 2 Zoom,3
+Freedom Fighter/Tiger II (F5),3
+DJI Matrice 210,3
+Cessna 337 Super Skymaster,3
+MU-2,3
+Learjet 40,3
+F/A 18 Hornet/Super Hornet,3
+Lancair IV/IVP,3
+M-20 TN Acclaim,3
+Military Transport,3
+Learjet 55,3
+DJI Mavic 2 Enterprise Advanced,3
+Holy Stone HS720,3
+Challenger CL601,3
+FreeFly Systems Alta X,3
+PA-34-220T Turbo Seneca III,3
+Aero Commander 695,3
+Airvan 8 (GA8),3
+Pitts S-1 All Series,3
+PA-24 Turbo Comanche,3
+Aero Commander 100 Series,3
+DA50 Super Star,3
+Hercules (C-130)/L100/382,3
+Shorts SD-360,3
+Cirrus Aircraft Undifferentiated,3
+Iroquois (Huey) All Series Undifferentiated or Other Model,3
+Lancair Undifferentiated,3
+Hawker 900,3
+Air Tractor Undifferentiated or Other Model,3
+PA-34 Seneca Undifferentiated,3
+TBM 960,3
+Sling 2,3
+Globe Temco Swift,3
+Lancair Legacy,3
+Tecnam P92 Eaglet,3
+RV-14,3
+DJI Matrice 350 RTK,3
+Tecnam P-Mentor,3
+Pipestral Undifferentiated or Other Model,3
+TBM 940,3
+A220 Undifferentiated or Other Model,3
+PA-60 700P,3
+Embraer Phenom 100,2
+British Aerospace Undifferentiated or Other Model,2
+Twin Beech 18,2
+Q400,2
+Cruisemaster 14-13,2
+PA-42 Cheyenne IIA,2
+DJI Phantom 4 Pro V2,2
+LA-250 (Renegade/Seawolf),2
+ATR Undifferentiated or Other Model,2
+DJI Phantom 4 RTK,2
+Skylark 175,2
+Lancair ES,2
+Fighting Falcon F16,2
+Scout 8GCBC,2
+Tecnam P2008,2
+Learjet 36,2
+Aircoupe A2,2
+Lancair Evolution,2
+CH750 / Cruzer,2
+Chinook (CH-47),2
+Pilatus Undifferentiated,2
+RV-3,2
+Cessna 350,2
+Skynight 320,2
+Citation II/SP (C551),2
+M-5,2
+Twin Otter DHC-6-300,2
+Epic Aircraft Undifferentiated or Other Model,2
+Falcon 20FJF/20C/20D/20E/20F,2
+Falcon 10/100,2
+Mentor/Turbo Mentor (T-34),2
+HS 125 Series 700,2
+Bell Helicopter 412,2
+Gulfstream III (G1159A),2
+DA62,2
+MU-2B 60 Marquise,2
+Zodiac CH601 / CH650,2
+Navion Aircraft Corp Undifferentiated or Other Model,2
+Holy Stone Undifferentiated,2
+Rangemaster (Navion),2
+Twin Bonanza 50,2
+F-35 Lightning II,2
+Kodiak 100,2
+FreeFly Systems Astro,2
+Sling 4,2
+Saab 2000,2
+DJI Phantom 3,2
+Alarus CH2000,2
+Trinidad TB-21,2
+Bronco (OV-10),2
+Jet Ranger All Series Undifferentiated or Other Model,2
+S-70/UH-60 Blackhawk/Seahawk/Pavehawk/Knighthawk,2
+Epic E1000 GX,2
+Commander 114/A/B/TC,2
+Stinson Undifferentiated or Other Model,2
+Taylorcraft Undifferentiated or Other Model,2
+ProJet MQ-9 Reaper,2
+DJI Neo 2,2
+Airbus 318/319/320/321 Undifferentiated,1
+Tobago TB-200,1
+A139 All Series,1
+Airbus Undifferentiated UAS,1
+CH701,1
+PA-60 602 Aerostar,1
+Airfield Extreme Undifferentiated,1
+Do 328 TJ (Turbojet),1
+Cessna 188 (Ag Wagon/Ag Truck/Ag Husky),1
+Hybrid,1
+Dassault-Breguet Undifferentiated or Other Model,1
+Iroquois 212/214,1
+Parrot Anafi Thermal,1
+MD-500MG,1
+Beechcraft King Air Undifferentiated or Other Model,1
+Viking,1
+Merlin III,1
+M-30,1
+DC-10 30,1
+LA-4 A/B Buccaneer,1
+Bell 47,1
+Holy Stone HS750,1
+Skydio X2E,1
+DJI Phantom 3 Professional,1
+Mallard G-73,1
+Bombardier Learjet Undifferentiated or Other Model,1
+Jet Ranger III,1
+Epic LT,1
+DJI Matrice 600 Pro,1
+Teal Golden Eagle,1
+DJI Spark,1
+Sabreliner 60,1
+AG-CAT Turbo,1
+B737-500,1
+UVify IFO,1
+PA-31P Navajo P,1
+Piper Twin Piston Undifferentiated or Other Model,1
+Tobago TB-10,1
+Extra Aircraft Undifferentiated or Other Model,1
+IAI1125 (Astra),1
+CH-53 Seastallion/Super Stallion,1
+IAI1124/1124A Westwind,1
+Robinson R66,1
+PA-42 Cheyenne III/IIIA,1
+Maule Aircraft Corp Undifferentiated or Other Model,1
+F-28 Enstrom Helicopter,1
+Ruko F11 Mini,1
+A119 All Series,1
+Potensic Dreamer Pro,1
+GB Manufacturer Undifferentiated,1
+Lockheed Martin Undifferentiated UAS,1
+Single Rotor / Helicopter,1
+Horizon Hobby Undifferentiated,1
+BN-2A Islander/Defender,1
+Falcon 20G/20GF/ Mysterre Falcon 200,1
+M-4,1
+Globemaster (C-17),1
+PA-60 601/601P Aerostar,1
+Trojan (T28),1
+General Atomics Undifferentiated or Other Model,1
+PA-31T Cheyenne I,1
+Alon,1
+Inc Undifferentiated or Other Model,1
+CH650,1
+S-64 Skycrane,1
+Pilatus Turbo Porter PC6,1
+Air Tractor 402,1
+Air Tractor 502,1
+Skydio X2,1
+Beaver DHC-2,1
+DJI Agras T10,1
+Parrot Anafi Undifferentiated,1
+Teal 2,1
+Skydio Undifferentiated,1
+Autel Robotics Evo,1
+Commander 112A,1
+Tecnam Astore,1
+Autel Robotics Evo Max 4N,1
+DJI Phanton 4,1
+Argosdyne Aquila-2,1
+Britten-Norman Undifferentiated or Other Model,1
+PA-34-220T Turbo Seneca IV,1
+RQ-4 Global Hawk,1
+McDonnell Douglas Helicopter Undifferentiated or Other Model,1
+PA-46 M600,1
+Hawker Horizon (Raytheon),1
+BetaFPV Pavo Femto,1
+Turbo Commander 840 (Jetprop),1
+Raptor (Lockheed),1
+Other,1
+A5,1
+Parrot Anafi UKR,1
+Super AG-Cat,1
+AeroDreams Petrel,1
+Teal Black Widow,1
+Aerospatiale Undifferentiated or Other Model,1
+B-25 Mitchell,1
+Cessna 195,1
+Tecnam P2002,1
+DJI Agras T50,1
+Rockwell North American Undifferentiated or Other Model,1
+Bwine F7GIM,1
+Air Tractor 802,1
+Fairchild Swearingen Undifferentiated or Other Model,1
+PA-12 Super Cruiser,1
+Percepto Air Max,1
+Otter DHC-3,1
+DJI FlyCart 30,1
+PA-31T Cheyenne II,1
+Exo Drones Blackhawk 3,1
+Cessna 411,1
+B787-1000,1
+EMB ERJ 140 ER/LR,1
+EC120,1
+Gulfstream VII / G600,1
+M-20 S Eagle,1
+DJI Phantom 4,1
+Cirrus Vision SJ50,1
+Learjet 25,1
+Holy Stone HS790,1
+AH-64 Apache,1
+Cessna 335,1
+Zenith Undifferentiated or Other Model,1
+XAG P150 Max,1
+SA 341/342 Gazelle,1
+Cessna Super Skywagon/Super Skylane,1
+Potensic Atom 2,1
+Commander 840,1
+MQ-9A Reaper,1
+Beechcraft Twin Piston Undifferentiated or Other Model,1
+Antigravity A1,1
+Lucid Bots Sherpa Drone,1
+DJI Mini 4K,1
+Merlin Undifferentiated or Other Model,1
+GEPRC Cinelog30 V3,1
+Apellix Undifferentiated,1
+Micro UAS (Less than 0.55 lbs),1
+DJI Mavic Air,1
+E-Flite Opterra 2,1
+DJI Flip,1
+Talos Drones T60X,1
+Holy Stone HS175D,1
+DJI Mavic 3 Pro,1
+Skydio 2+,1
+DJI Avata 360,1
+DJI Agras T100,1

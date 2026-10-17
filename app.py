@@ -7,6 +7,16 @@ sys.path.insert(0, "src")
 st.set_page_config(page_title="SkyLens", page_icon="✈️", layout="wide")
 
 
+# On Streamlit Community Cloud, keys live in the app's Secrets settings.
+# Copy them into environment variables so the rest of the code can read them.
+for _k in ("GROQ_API_KEY", "INDEX_REPO"):
+    if not os.getenv(_k):
+        try:
+            os.environ[_k] = st.secrets[_k]
+        except Exception:
+            pass
+
+
 def ensure_index():
     """On a fresh host (e.g. Hugging Face Spaces) download the prebuilt index."""
     if os.path.exists(os.path.join("chroma_db", "chroma.sqlite3")):
