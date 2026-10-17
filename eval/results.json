@@ -101,13 +101,13 @@
     "id": 18,
     "type": "semantic",
     "question": "Crew could not get three green lights before touchdown",
-    "retrieval_precision@5": 0.6
+    "retrieval_precision@5": 0.8
   },
   {
     "id": 19,
     "type": "semantic",
     "question": "Aircraft left the paved surface after touching down",
-    "retrieval_precision@5": 0.8
+    "retrieval_precision@5": 0.6
   },
   {
     "id": 20,
@@ -125,7 +125,7 @@
     "id": 22,
     "type": "semantic",
     "question": "Turbulence from a heavy jet ahead rolled the aircraft on final",
-    "retrieval_precision@5": 1.0
+    "retrieval_precision@5": 0.8
   },
   {
     "id": 23,
@@ -143,6 +143,6 @@
     "id": 25,
     "type": "semantic",
     "question": "Pilot set the wrong barometric pressure and flew lower than intended",
-    "retrieval_precision@5": 0.2
+    "retrieval_precision@5": 0.0
   }
 ]

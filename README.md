@@ -47,7 +47,7 @@ ASRS CSVs (data/)
  ChromaDB (chroma_db/)  <-- one collection per embedding model
       |
       v
- retriever.py  -> search / get_report / stats / compare / trend
+ retriever.py  -> search (+ cross-encoder rerank of top 30) / get_report / stats / compare / trend
       |
       v
  agent.py (LangGraph ReAct agent + 5 tools + LLM)
@@ -60,7 +60,7 @@ ASRS CSVs (data/)
 
 - **Python**, pandas
 - **ChromaDB** for vector storage
-- **sentence-transformers** for embeddings, running on an NVIDIA GPU (CUDA PyTorch) with CPU fallback
+- **sentence-transformers** for embeddings (`bge-small-en-v1.5`) and a cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`), running on an NVIDIA GPU (CUDA PyTorch) with CPU fallback
 - **LangGraph** for the agent loop
 - **Streamlit** and **Plotly** for the UI and charts
 - **LLM:** Groq `openai/gpt-oss-120b` (free tier), set with `LLM_MODEL`. The `llm` line can be swapped for Gemini, Ollama or the Claude API.
@@ -124,6 +124,8 @@ Run every command from the **project root**, because the scripts use relative pa
    python src\ingest.py
    ```
    Options: `bge-small`, `bge-base`, `qwen3-0.6b`, `embeddinggemma`. Each model gets its own collection. Use the **same** `EMBED_MODEL` in every terminal that runs the agent, evaluation or app.
+
+   The reranker is on by default. Choose it with `$env:RERANKER="minilm"` (default), `"bge"` or `"none"`. It needs no re-indexing.
 6. **Check retrieval:**
    ```powershell
    python src\test.py
@@ -201,6 +203,18 @@ The first 13 retrieval questions saturated (bge-small scored 0.98), so 8 paraphr
 **Reading the table:** with 21 questions, one question moving by 0.2 changes the average by only about 0.01, so bge-base (0.93) and Qwen3 (0.94) are effectively tied overall. The clear difference is question 25 ("wrong barometric pressure"): Qwen3 understood it (0.8) where bge-small (0.0) and bge-base (0.2) matched the word "pressure". That gain cost 11 times the build time of bge-small, and a 0.6B model is slow to embed queries on a CPU-only free host. So Qwen3 is not used for deployment. The choice between bge-small and bge-base is made after testing a cross-encoder reranker, which may fix the same kind of miss far more cheaply.
 | embeddinggemma | not run | not run | not run | gated model, needs Hugging Face license |
 
+**Reranking.** A cross-encoder reads the question and each candidate report together, which embeddings cannot do. It re-orders the top 30 candidates from the embedding search. Same 21 questions, bge-small embeddings, RTX 3050:
+
+| Setup | Original 13 | All 21 | Q18 / Q19 / Q22 / Q23 / Q25 | Avg search time |
+|---|---|---|---|---|
+| bge-small, no reranker | 0.98 | 0.90 | 0.4 / 0.6 / 1.0 / 1.0 / 0.0 | 254 ms |
+| bge-small + `ms-marco-MiniLM-L-6-v2` (22M) | 1.00 | **0.95** | 0.8 / 1.0 / 1.0 / 0.8 / 0.4 | 458 ms |
+| bge-small + `bge-reranker-base` (278M) | 1.00 | 0.91 | 0.8 / 0.6 / 0.8 / 1.0 / 0.0 | about 5 s* |
+
+\*Measured while another evaluation shared the GPU, and the 1.1 GB model in full precision is heavy for a 4 GB card, so this time is inflated. The accuracy result stands regardless.
+
+**Decision:** bge-small + MiniLM reranker is the default. It scores the best overall (0.95, above Qwen3's 0.94), costs about 200 ms per search, builds in 4.7 minutes, and is small enough for a CPU-only free host. The 12 times larger reranker was *not* better here, and no setup fully fixes question 25 except Qwen3 (0.8). The baseline run reproduced last week's scores exactly (0.90, same per-question values), so the evaluation is deterministic.
+
 Agent-level results (Groq `openai/gpt-oss-120b`, bge-small, original 17 questions):
 
 | Metric | Result |
@@ -270,7 +284,7 @@ The fabricated-citation check only verifies that each cited ACN was actually ret
 - [x] Qwen3-0.6b result (0.94, fixes the "pressure" confusion, 51.7 min build)
 - [ ] Citation guardrail: mark cited ACNs that were not retrieved as unverified
 - [ ] Month filter (`date_from` / `date_to`)
-- [ ] Reranker (cross-encoder), measured in the eval table
+- [x] Reranker (cross-encoder): MiniLM lifts bge-small from 0.90 to 0.95
 - [ ] Hybrid BM25 search, "find similar incidents", PDF briefing export
 - [ ] Deployment (Hugging Face Spaces or Streamlit Community Cloud)
 - [ ] Architecture diagram and a 2-minute demo video

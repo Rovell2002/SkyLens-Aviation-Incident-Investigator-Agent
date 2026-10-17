@@ -12,3 +12,4 @@ chroma_db/
 data/
 API.txt
 *.key
+deploy_db/

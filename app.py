@@ -1,3 +1,4 @@
+import os
 import re
 import sys
 import streamlit as st
@@ -6,8 +7,21 @@ sys.path.insert(0, "src")
 st.set_page_config(page_title="SkyLens", page_icon="✈️", layout="wide")
 
 
+def ensure_index():
+    """On a fresh host (e.g. Hugging Face Spaces) download the prebuilt index."""
+    if os.path.exists(os.path.join("chroma_db", "chroma.sqlite3")):
+        return
+    repo = os.getenv("INDEX_REPO")
+    if not repo:
+        st.error("No local index found and INDEX_REPO is not set.")
+        st.stop()
+    from huggingface_hub import snapshot_download
+    snapshot_download(repo_id=repo, repo_type="dataset", local_dir="chroma_db")
+
+
 @st.cache_resource(show_spinner="Loading SkyLens (first start only)...")
 def load():
+    ensure_index()
     import retriever as R
     from agent import agent
     R._all_metas()          # warm the metadata cache so the Compare tab is instant
@@ -30,17 +44,24 @@ def text_of(content):
     return str(content)
 
 
-def render_citations(acns):
+def render_citations(acns, retrieved=None):
+    """Show each cited report. A citation is verified only if a tool actually
+    returned that ACN while answering; anything else is flagged."""
     if not acns:
         return
     st.markdown("**Cited reports**")
     for acn in acns:
         r = R.get_report(acn)
-        if r:
-            with st.expander(f"ACN {acn} | {r['date']} | {r['aircraft']}"):
+        verified = retrieved is None or acn in retrieved
+        if not r:
+            st.warning(f"ACN {acn} was cited but does not exist in the database.")
+        elif verified:
+            with st.expander(f"✅ ACN {acn} | {r['date']} | {r['aircraft']}"):
                 st.write(r["text"])
         else:
-            st.warning(f"ACN {acn} was cited but not found in the database.")
+            with st.expander(f"⚠️ ACN {acn} | {r['date']} | {r['aircraft']} (unverified: "
+                             f"not returned by a search for this answer)"):
+                st.write(r["text"])
 
 
 # ---- Session state ----
@@ -68,7 +89,7 @@ with tab_chat:
         with st.chat_message(m["role"]):
             st.markdown(m["content"])
             if m["role"] == "assistant":
-                render_citations(m.get("acns", []))
+                render_citations(m.get("acns", []), m.get("retrieved"))
                 for i, p in enumerate(m.get("charts", [])):
                     render_chart(p, key=f"h{idx}_{i}")
 
@@ -113,17 +134,20 @@ with tab_chat:
                         status.update(label="Done", state="complete")
                     answer = text_of(result["messages"][-1].content)
                     charts = extract_charts(result["messages"])
+                    retrieved = {a for m in result["messages"] if m.type == "tool"
+                                 for a in ACN_RE.findall(text_of(m.content))}
                     error = False
                     break
                 except Exception as e:
                     answer = f"Something went wrong: {e}"
                     charts = []
+                    retrieved = set()
                     error = True
                     if "tool_use_failed" not in str(e):
                         break
             st.markdown(answer)
             acns = list(dict.fromkeys(ACN_RE.findall(answer)))
-            render_citations(acns)
+            render_citations(acns, retrieved)
             for i, p in enumerate(charts):
                 render_chart(p, key=f"h{len(st.session_state.messages)}_{i}")  # same key as history, so toggles keep their state
 
@@ -131,4 +155,4 @@ with tab_chat:
             st.session_state.messages[-1]["error"] = True
         st.session_state.messages.append(
             {"role": "assistant", "content": answer, "acns": acns, "charts": charts,
-             "error": error})
+             "retrieved": retrieved, "error": error})

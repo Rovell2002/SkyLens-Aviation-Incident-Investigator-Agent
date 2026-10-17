@@ -15,8 +15,13 @@ def text_of(content):
     return str(content)
 
 
+SEARCH_MS = []
+
+
 def retrieval_precision(q):
+    t0 = time.perf_counter()
     hits = R.search(q["question"], n=5, **q.get("filters", {}))
+    SEARCH_MS.append((time.perf_counter() - t0) * 1000)
     if not hits:
         return 0.0
     kws = [k.lower() for k in q["keywords"]]
@@ -35,6 +40,10 @@ def run_agent(q):
     cited = set(ACN_RE.findall(answer))
     return answer, cited, retrieved
 
+
+import os
+print(f"Embedding model: {os.getenv('EMBED_MODEL', 'bge-small')} | reranker: {R.RERANKER}")
+R.search("warm up", n=1)   # load models first, so timings measure search only
 
 results = []
 questions = json.load(open("eval/questions.json"))
@@ -67,6 +76,7 @@ ret = [r["retrieval_precision@5"] for r in results if "retrieval_precision@5" in
 print("\n=== SUMMARY ===")
 if ret:
     print(f"Retrieval precision@5 (keyword): {sum(ret)/len(ret):.2f}")
+    print(f"Average search time: {sum(SEARCH_MS)/len(SEARCH_MS):.0f} ms per question")
 if RUN_AGENT:
     cit = [r for r in results if "has_citation" in r]
     if cit:

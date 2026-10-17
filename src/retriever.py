@@ -1,3 +1,4 @@
+import os
 import re
 from collections import Counter
 from functools import lru_cache
@@ -6,6 +7,29 @@ import chromadb
 from embedder import embed_query, COLLECTION
 
 _col = chromadb.PersistentClient(path="chroma_db").get_collection(COLLECTION)
+
+# ---------------------------------------------------------------- reranker
+# A cross-encoder reads the question and each candidate report together and
+# scores how well they match. Slower than embeddings, so it only re-orders the
+# top candidates. Choose with the RERANKER environment variable.
+RERANKER = os.getenv("RERANKER", "minilm")   # "none" turns it off
+RERANK_MODELS = {
+    "minilm": "cross-encoder/ms-marco-MiniLM-L-6-v2",   # 22M params, fast on CPU
+    "bge": "BAAI/bge-reranker-base",                    # 278M params, stronger
+}
+RERANK_CANDIDATES = 30
+_reranker = None
+
+
+def _get_reranker():
+    global _reranker
+    if _reranker is None and RERANKER in RERANK_MODELS:
+        import torch
+        from sentence_transformers import CrossEncoder
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        _reranker = CrossEncoder(RERANK_MODELS[RERANKER], device=device, max_length=512)
+        print(f"[retriever] reranker={RERANKER} device={device}")
+    return _reranker
 
 
 # ---------------------------------------------------------------- helpers
@@ -96,10 +120,13 @@ def _count_by(field, **filters):
 
 def search(query, n=5, year_from=None, year_to=None, state=None,
            aircraft=None, flight_phase=None, anomaly=None):
-    """Semantic search with metadata filters; one result per report."""
+    """Semantic search with metadata filters; one result per report.
+    If a reranker is enabled, the top candidates are re-scored and re-ordered."""
+    rr = _get_reranker()
+    want = max(n, RERANK_CANDIDATES) if rr else n
     emb = embed_query(query)
     where = _where(year_from, year_to, state)
-    pool = n * 8
+    pool = want * 8
     if any([aircraft, flight_phase, anomaly]):
         # Find matching reports from metadata first, then search only inside them.
         # (Filtering after a top-500 search missed rare aircraft such as the B787.)
@@ -111,7 +138,7 @@ def search(query, n=5, year_from=None, year_to=None, state=None,
             acn_cond = {"acn": {"$in": acns}}
             where = acn_cond if where is None else {"$and": [where, acn_cond]}
         else:
-            pool = 500   # very common filter: search wide, then filter below
+            pool = max(pool, 500)   # very common filter: search wide, then filter below
     res = _col.query(query_embeddings=emb, n_results=pool, where=where)
     out = {}
     for doc, meta in zip(res["documents"][0], res["metadatas"][0]):
@@ -123,9 +150,13 @@ def search(query, n=5, year_from=None, year_to=None, state=None,
                 and _has(meta, "anomaly", anomaly)):
             continue
         out[acn] = {**meta, "text": doc}
-        if len(out) >= n:
+        if len(out) >= want:
             break
-    return list(out.values())
+    hits = list(out.values())
+    if rr and len(hits) > 1:
+        scores = rr.predict([(query, h["text"]) for h in hits], batch_size=16)
+        hits = [h for _, h in sorted(zip(scores, hits), key=lambda x: -x[0])]
+    return hits[:n]
 
 
 def get_report(acn):
